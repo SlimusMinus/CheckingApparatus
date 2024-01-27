@@ -24,27 +24,6 @@ public class DataBase {
         startAddUsers();
     }
 
-    //добавление нового пользователя
-    public void addNewUser(User user, LocalDate date, ReadingsAbstract readingsAbstract) {
-        Map<LocalDate, ReadingsAbstract> newUser = new TreeMap<>();
-        newUser.put(date, readingsAbstract);
-        Map<User, Map<LocalDate, ReadingsAbstract>> fullUser1 = new HashMap<>();
-        fullUser1.put(user, newUser);
-        users.add(fullUser1);
-    }
-
-    //изменение данных пользователя из БД
-    public void addRecordingsOldUser(User user, LocalDate date, ReadingsAbstract readingsAbstract) {
-
-        for (Map<User, Map<LocalDate, ReadingsAbstract>> item : users) {
-            for (Map.Entry<User, Map<LocalDate, ReadingsAbstract>> Map : item.entrySet()) {
-                if (Map.getKey().getLogin().equals(user.getLogin())) {
-                    Map.getValue().put(date, readingsAbstract);
-                }
-            }
-        }
-    }
-
     //Создание БД
     public void startAddUsers() {
 

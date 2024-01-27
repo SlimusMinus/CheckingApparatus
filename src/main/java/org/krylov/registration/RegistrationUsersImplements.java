@@ -4,6 +4,9 @@ import org.krylov.check.CheckOldUsers;
 import org.krylov.check.CheckOldUsersImplements;
 import org.krylov.check.CheckUser;
 import org.krylov.check.CheckUserImplements;
+import org.krylov.entity.database.AddNewUser;
+import org.krylov.entity.database.AddNewUserImpl;
+import org.krylov.entity.database.AddRecordingsOldUserImplements;
 import org.krylov.entity.database.DataBase;
 import org.krylov.entity.baseReadings.ReadingsAbstract;
 import org.krylov.entity.User;
@@ -31,11 +34,15 @@ public class RegistrationUsersImplements implements RegistrationUsers {
     public ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> getDataBase() {
         return dataBase.getUsers();
     }
+    //ссылка на добавление нового пользователя
+    AddNewUser newUser = new AddNewUserImpl();
+    //ссылка на изменение данных пользователя из БД
+    AddRecordingsOldUserImplements addRecordingsOldUser = new AddRecordingsOldUserImplements();
 
     @Override
     public void getUser(User user) {
         if (checkUser.checkUser(user.getLogin(), getDataBase())) {
-            System.out.println("Hello " + user.getLogin() + " input new data\n");
+            System.out.println("Hello " + user.getLogin());
 
         } else {
             System.out.println("Your login or password incorrect");
@@ -59,7 +66,7 @@ public class RegistrationUsersImplements implements RegistrationUsers {
         System.out.println("Welcome new user is" + user.getName() + "input your recordings");
         ReadingsAbstract readingsAbstract = setReadings.setReadings();
         LocalDate date = setReadings.setDate();
-        dataBase.addNewUser(user, date, readingsAbstract);
+        newUser.addNewUser(user, date, readingsAbstract);
         System.out.println("Your submitted recordings");
         System.out.println(date + " " + readingsAbstract);
     }
@@ -69,7 +76,7 @@ public class RegistrationUsersImplements implements RegistrationUsers {
         User old_user = checkOldUsers.checkUser(user.getLogin(), getDataBase());
         ReadingsAbstract readingsAbstract = setReadings.setReadings();
         LocalDate date = setReadings.setDate();
-        dataBase.addRecordingsOldUser(old_user, date, readingsAbstract);
+        addRecordingsOldUser.addRecordingsOldUser(old_user, date, readingsAbstract);
         System.out.println("Your submitted recordings");
         System.out.println(date + " " + readingsAbstract);
     }
