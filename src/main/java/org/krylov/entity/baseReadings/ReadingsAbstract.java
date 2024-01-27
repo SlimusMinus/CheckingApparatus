@@ -1,6 +1,8 @@
 package org.krylov.entity.baseReadings;
 
 public abstract class ReadingsAbstract {
+
+    //entity класс содержащий только показания геттеры и сеттеры
     private int hot_waters;
     private int cold_waters;
     private int heating;

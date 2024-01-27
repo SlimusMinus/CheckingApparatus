@@ -1,5 +1,6 @@
-package org.krylov.entity;
+package org.krylov.entity.database;
 
+import org.krylov.entity.User;
 import org.krylov.entity.baseReadings.ReadingsAbstract;
 import org.krylov.entity.baseReadings.Readings;
 

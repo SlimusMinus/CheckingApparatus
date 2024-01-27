@@ -1,7 +1,7 @@
 package org.krylov;
 
 import org.krylov.endpoints.RelizEndPoints;
-import org.krylov.entity.DataBase;
+import org.krylov.entity.database.DataBase;
 import org.krylov.registration.RegistrationUsers;
 import org.krylov.registration.RegistrationUsersImplements;
 import org.krylov.entity.User;

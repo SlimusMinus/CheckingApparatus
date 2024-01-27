@@ -8,8 +8,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class RelizEndPoints {
-
     Scanner in = new Scanner(System.in);
+
+    //вывод в консоль актуальных данных
     public void currentIndications(RegistrationUsers users, User user ){
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()){
             for(Map<User, Map<LocalDate, ReadingsAbstract>> items : users.getDataBase()){
@@ -25,6 +26,7 @@ public class RelizEndPoints {
         }
     }
 
+    //вывод в консоль данных за определенный месяц
     public void specificMonth(RegistrationUsers users, User user){
         System.out.println("Input your month");
         int month = in.nextInt();
@@ -36,12 +38,15 @@ public class RelizEndPoints {
                     for (Map.Entry<LocalDate, ReadingsAbstract> items : allMonth.entrySet()) {
                         if (items.getKey().getMonth().getValue() == month)
                             System.out.println(items);
+                        else
+                            System.out.println("No data this month");
                     }
                 }
             }
         }
     }
 
+    //вывод в консоль всех показаний текущего пользователя
     public void allRecordings(RegistrationUsers users, User user){
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {
             for (Map.Entry<User, Map<LocalDate, ReadingsAbstract>> allUsers : item.entrySet()) {
@@ -50,7 +55,7 @@ public class RelizEndPoints {
             }
         }
     }
-
+    //вывод в консоль всех показаний всех пользователей для администратора
     public void allRecordingsForAdmin(RegistrationUsers users, User user){
         if(user.getLogin().equals("admin")){
             for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {

@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class User {
+
+    //entity класс содержащий данные о пользователе, геттеры и сеттеры
     private String login;
     private String password;
     private String name;

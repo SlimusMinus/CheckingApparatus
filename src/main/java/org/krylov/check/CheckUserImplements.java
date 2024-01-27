@@ -9,6 +9,7 @@ import java.util.Map;
 
 public class CheckUserImplements implements CheckUser{
 
+    //проверка логина пользователя
     @Override
     public boolean checkUser(String login, ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> allUsers) {
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : allUsers){

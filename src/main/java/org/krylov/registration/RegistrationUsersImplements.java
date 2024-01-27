@@ -4,7 +4,7 @@ import org.krylov.check.CheckOldUsers;
 import org.krylov.check.CheckOldUsersImplements;
 import org.krylov.check.CheckUser;
 import org.krylov.check.CheckUserImplements;
-import org.krylov.entity.DataBase;
+import org.krylov.entity.database.DataBase;
 import org.krylov.entity.baseReadings.ReadingsAbstract;
 import org.krylov.entity.User;
 import org.krylov.readings.SetReadings;
