@@ -36,7 +36,7 @@ public class App {
                 System.out.println("2 - reading endpoint");
                 System.out.println("3 - endpoint for viewing readings for a specific month");
                 System.out.println("4 - endpoint for viewing the history of testimony submission");
-                System.out.println("5 - endpoint for viewing the history of testimony of all users");
+                System.out.println("5 - endpoint for viewing the history of testimony of all users2");
                 int endpoint = in.nextInt();
                 switch (endpoint) {
                     case (1):

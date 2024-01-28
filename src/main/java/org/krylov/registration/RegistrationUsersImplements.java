@@ -4,7 +4,7 @@ import org.krylov.check.CheckOldUsers;
 import org.krylov.check.CheckOldUsersImplements;
 import org.krylov.check.CheckUser;
 import org.krylov.check.CheckUserImplements;
-import org.krylov.entity.database.AddNewUser;
+import org.krylov.entity.database.*;
 import org.krylov.entity.database.AddNewUserImpl;
 import org.krylov.entity.database.AddRecordingsOldUserImplements;
 import org.krylov.entity.database.DataBase;
@@ -17,18 +17,13 @@ import java.util.*;
 
 public class RegistrationUsersImplements implements RegistrationUsers {
     Scanner in = new Scanner(System.in);
-
     //доступ к базе данных
     DataBase dataBase = new DataBase();
-
     //передача показаний(даты и самих показаний)
     private SetReadings setReadings = new SetReadingsImplements();
-
     CheckOldUsers checkOldUsers = new CheckOldUsersImplements();
-
     //проверка на наличие пользователя в БД
     CheckUser checkUser = new CheckUserImplements();
-
     //получить весь список из БД
     @Override
     public ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> getDataBase() {
@@ -65,7 +60,7 @@ public class RegistrationUsersImplements implements RegistrationUsers {
         user.setCity(in.next());
         System.out.println("Welcome new user is" + user.getName() + "input your recordings");
         ReadingsAbstract readingsAbstract = setReadings.setReadings();
-        LocalDate date = setReadings.setDate();
+        LocalDate date = setReadings.setDate(user);
         newUser.addNewUser(user, date, readingsAbstract);
         System.out.println("Your submitted recordings");
         System.out.println(date + " " + readingsAbstract);
@@ -75,7 +70,7 @@ public class RegistrationUsersImplements implements RegistrationUsers {
     public void addRecordings(User user) {
         User old_user = checkOldUsers.checkUser(user.getLogin(), getDataBase());
         ReadingsAbstract readingsAbstract = setReadings.setReadings();
-        LocalDate date = setReadings.setDate();
+        LocalDate date = setReadings.setDate(user);
         addRecordingsOldUser.addRecordingsOldUser(old_user, date, readingsAbstract);
         System.out.println("Your submitted recordings");
         System.out.println(date + " " + readingsAbstract);

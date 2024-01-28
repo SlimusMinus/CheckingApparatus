@@ -7,6 +7,6 @@ import java.time.LocalDate;
 
 public interface SetReadings {
     public ReadingsAbstract setReadings();
-    public LocalDate setDate();
+    public LocalDate setDate(User user);
     public User registrationUser();
 }
