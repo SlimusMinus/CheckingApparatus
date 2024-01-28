@@ -8,11 +8,10 @@ import org.krylov.registration.RegistrationUsers;
 import org.krylov.registration.RegistrationUsersImplements;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
 
-@ExtendWith(MockitoExtension.class)
+
 public class RelizEndPointsTest {
    @Mock
     RelizEndPoints endPoints ;
@@ -26,18 +25,22 @@ public class RelizEndPointsTest {
     }
     @Test
     void currentIndications(){
+        endPoints.currentIndications(users, user);
         verify(endPoints, Mockito.times(1)).currentIndications(users, user);
     }
     @Test
     void specificMonth(){
+        endPoints.specificMonth(users, user);
         verify(endPoints, Mockito.times(1)).specificMonth(users, user);
     }
     @Test
     void allRecordings(){
+        endPoints.allRecordings(users, user);
         verify(endPoints, Mockito.times(1)).allRecordings(users, user);
     }
     @Test
     void allRecordingsForAdmin(){
+        endPoints.allRecordingsForAdmin(users, user);
         verify(endPoints, Mockito.times(1)).allRecordingsForAdmin(users, user);
     }
 
