@@ -5,10 +5,12 @@ import org.krylov.entity.database.DataBase;
 import org.krylov.registration.RegistrationUsers;
 import org.krylov.registration.RegistrationUsersImplements;
 import org.krylov.entity.User;
-
 import java.util.Scanner;
 
-
+/**
+ * the main class is where all the work happens
+ * @author Alexandr Krylov
+ * @version 1.0*/
 public class App {
     public static void main(String[] args) {
         DataBase dataBase = new DataBase();

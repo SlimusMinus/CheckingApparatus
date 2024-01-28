@@ -8,9 +8,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * class for adding a new user*/
 public class AddNewUserImpl extends DataBase implements AddNewUser{
 
-    //добавление нового пользователя
+    /**
+     * adding a new user
+     *       @param user - new user
+     *       @param date - date of submission of testimony
+     *       @param readingsAbstract - transmitting new counter readings */
     public void addNewUser(User user, LocalDate date, ReadingsAbstract readingsAbstract) {
         Map<LocalDate, ReadingsAbstract> newUser = new TreeMap<>();
         newUser.put(date, readingsAbstract);

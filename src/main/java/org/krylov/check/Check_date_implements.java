@@ -7,10 +7,17 @@ import org.krylov.entity.database.DataBase;
 import java.time.LocalDate;
 import java.util.Map;
 
+
+/**
+ *class for checking transmitted data in the current month
+ */
 public class Check_date_implements extends DataBase implements Check_date {
-
-
-    //проверка переданных данных в текущем месяце
+    /**
+     * checking the transmitted data in the current month
+     * @param month - transferred month
+     * @param year - transferred year
+     * @param user - verified user
+     * */
     @Override
     public boolean check_date(int month, int year, User user) {
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : super.getUsers()) {

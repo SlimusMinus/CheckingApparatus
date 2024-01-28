@@ -1,12 +1,17 @@
 package org.krylov.entity.baseReadings;
 
+/**
+ * Due to this class, expansions can be made by adding new indications
+ * */
 
-//засчет этого класса можно производить расширения путем добавления новых показаний
 public class Readings extends ReadingsAbstract {
 
-    //формальное новое показание для теста
+    /**
+     *formal new indication for test
+     */
     int electricity;
-    //формальный конструктор для передачи нового показания
+    /**
+     * formal constructor for passing a new indication*/
     public Readings(int hot_waters, int cold_waters, int heating, int electricity) {
         super(hot_waters, cold_waters, heating);
         this.electricity = electricity;

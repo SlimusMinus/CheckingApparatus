@@ -6,9 +6,8 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
 
+/**entity class containing user data, getters and setters*/
 public class User {
-
-    //entity класс содержащий данные о пользователе, геттеры и сеттеры
     private String login;
     private String password;
     private String name;
@@ -27,7 +26,13 @@ public class User {
 
     public User() {}
 
-    public User(String login, String password, String name, int age, String city,  Map<LocalDate, ReadingsAbstract> dataUser) {
+    //конструктор для тестирования методов
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
+    public User(String login, String password, String name, int age, String city, Map<LocalDate, ReadingsAbstract> dataUser) {
         this.login = login;
         this.password = password;
         this.name = name;

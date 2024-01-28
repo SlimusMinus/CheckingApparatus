@@ -6,9 +6,15 @@ import org.krylov.entity.baseReadings.ReadingsAbstract;
 import java.time.LocalDate;
 import java.util.Map;
 
+/**
+ * class for changing user data from the database*/
 public class AddRecordingsOldUserImplements extends DataBase implements AddRecordingsOldUser{
 
-    //изменение данных пользователя из БД
+    /**
+     * changing user data from the database
+     *      @param readingsAbstract - transmission of readings
+     *       @param user - user from the database
+     *       @param date - date of transmission of readings */
     public void addRecordingsOldUser(User user, LocalDate date, ReadingsAbstract readingsAbstract) {
 
         for (Map<User, Map<LocalDate, ReadingsAbstract>> item : super.getUsers()) {

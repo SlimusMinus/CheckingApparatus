@@ -9,10 +9,8 @@ import java.util.Map;
 public interface RegistrationUsers {
    // public void getOrAddUser(User user);
     public ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> getDataBase();
-
     public void getUser (User user);
     public void addUser(User user);
-
     public void addRecordings(User user);
 
 }

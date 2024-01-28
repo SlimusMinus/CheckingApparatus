@@ -7,10 +7,16 @@ import java.time.LocalDate;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * class for implementing registered user actions*/
 public class RelizEndPoints {
     Scanner in = new Scanner(System.in);
 
-    //вывод в консоль актуальных данных
+    /**
+     * output of current data to the console
+     * @param user - specific user
+     * @param users - database
+     */
     public void currentIndications(RegistrationUsers users, User user ){
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()){
             for(Map<User, Map<LocalDate, ReadingsAbstract>> items : users.getDataBase()){
@@ -26,7 +32,11 @@ public class RelizEndPoints {
         }
     }
 
-    //вывод в консоль данных за определенный месяц
+    /**
+     * output to the console data for a specific month
+     *      @param user - specific user
+     *      @param users - database
+     */
     public void specificMonth(RegistrationUsers users, User user){
         System.out.println("Input your month");
         int month = in.nextInt();
@@ -46,7 +56,11 @@ public class RelizEndPoints {
         }
     }
 
-    //вывод в консоль всех показаний текущего пользователя
+    /**
+     * output to the console all readings of the current user
+     *       @param user - specific user
+     *       @param users - database
+     */
     public void allRecordings(RegistrationUsers users, User user){
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {
             for (Map.Entry<User, Map<LocalDate, ReadingsAbstract>> allUsers : item.entrySet()) {
@@ -55,7 +69,11 @@ public class RelizEndPoints {
             }
         }
     }
-    //вывод в консоль всех показаний всех пользователей для администратора
+    /**
+     output to the console of all readings of all users for the administrator
+     * @param user - specific user
+     * @param users - database
+     */
     public void allRecordingsForAdmin(RegistrationUsers users, User user){
         if(user.getLogin().equals("admin")){
             for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {

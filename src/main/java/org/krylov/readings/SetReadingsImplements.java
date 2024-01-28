@@ -11,11 +11,19 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ * class for creating and transmitting new counter readingsв*/
 public class SetReadingsImplements implements SetReadings{
-    ReadingsAbstract readingsAbstract = new Readings();
     Scanner in = new Scanner(System.in);
+    /**
+     * variable for transmitting readings*/
+    ReadingsAbstract readingsAbstract = new Readings();
+    /**
+     * variable for checking transmitted readings*/
     Check_date date = new Check_date_implements();
+
+    /**
+     * setting new readings*/
     @Override
     public ReadingsAbstract setReadings() {
         try {
@@ -32,7 +40,8 @@ public class SetReadingsImplements implements SetReadings{
         }
         return readingsAbstract;
     }
-
+    /**
+     *date of transmission of evidence*/
     @Override
     public LocalDate setDate(User user) {
         int day = 0, month = 0, year = 0;
@@ -56,6 +65,8 @@ public class SetReadingsImplements implements SetReadings{
         return LocalDate.of(year, month, day);
     }
 
+    /**
+     * New User Registration*/
     @Override
     public User registrationUser() {
         Scanner in = new Scanner(System.in);

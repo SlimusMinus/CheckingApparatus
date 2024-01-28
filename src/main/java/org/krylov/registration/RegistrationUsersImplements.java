@@ -17,23 +17,25 @@ import java.util.*;
 
 public class RegistrationUsersImplements implements RegistrationUsers {
     Scanner in = new Scanner(System.in);
-    //доступ к базе данных
+    /**database access*/
     DataBase dataBase = new DataBase();
-    //передача показаний(даты и самих показаний)
+    /**transfer of readings (dates and readings themselves)*/
     private SetReadings setReadings = new SetReadingsImplements();
     CheckOldUsers checkOldUsers = new CheckOldUsersImplements();
-    //проверка на наличие пользователя в БД
+    /**checking for user presence in the database*/
     CheckUser checkUser = new CheckUserImplements();
-    //получить весь список из БД
+    /**get the entire list from the database*/
     @Override
     public ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> getDataBase() {
         return dataBase.getUsers();
     }
-    //ссылка на добавление нового пользователя
+    /**link to add a new user*/
     AddNewUser newUser = new AddNewUserImpl();
-    //ссылка на изменение данных пользователя из БД
+    /**link to change user data from the database*/
     AddRecordingsOldUserImplements addRecordingsOldUser = new AddRecordingsOldUserImplements();
 
+    /**
+     * getting user from database*/
     @Override
     public void getUser(User user) {
         if (checkUser.checkUser(user.getLogin(), getDataBase())) {
@@ -45,6 +47,9 @@ public class RegistrationUsersImplements implements RegistrationUsers {
         }
     }
 
+    /**
+     * creating a new user and transferring readings
+     *      @param user - object for creating a new user*/
     @Override
     public void addUser(User user) {
         System.out.println("Welcome new user, input your personal data");
@@ -66,6 +71,9 @@ public class RegistrationUsersImplements implements RegistrationUsers {
         System.out.println(date + " " + readingsAbstract);
     }
 
+    /**
+     * adding new indications to the user
+     *      @param user - to whom we add readings*/
     @Override
     public void addRecordings(User user) {
         User old_user = checkOldUsers.checkUser(user.getLogin(), getDataBase());

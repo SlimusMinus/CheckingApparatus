@@ -8,23 +8,28 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.Map;
 
-//создание общей базы данных
+/**
+ * creation of a common database*/
+
 public class DataBase {
 
-    //база пользователей
+    /**
+     * user base*/
     private ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> users = new ArrayList<>();
 
-    //геттер
     public ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> getUsers() {
         return users;
     }
 
-    //заполнение базы данных при создании экземпляра БД
+   /**
+    * filling the database when creating a database instance*/
     public DataBase() {
         startAddUsers();
     }
 
-    //Создание БД
+    /**
+     *
+     * Creating a database*/
     public void startAddUsers() {
 
         Map<LocalDate, ReadingsAbstract> dataUser1 = new TreeMap<>();

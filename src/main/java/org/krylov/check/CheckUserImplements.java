@@ -7,9 +7,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * class for user authentication*/
 public class CheckUserImplements implements CheckUser{
-
-    //проверка логина пользователя
+    /**
+     * user login verification
+     * @param login - user login
+     * @param allUsers - database*/
     @Override
     public boolean checkUser(String login, ArrayList<Map<User, Map<LocalDate, ReadingsAbstract>>> allUsers) {
         for(Map<User, Map<LocalDate, ReadingsAbstract>> item : allUsers){
