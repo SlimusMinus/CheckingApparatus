@@ -2,9 +2,11 @@ package org.krylov;
 
 import org.krylov.endpoints.RelizEndPoints;
 import org.krylov.entity.database.DataBase;
-import org.krylov.registration.RegistrationUsers;
-import org.krylov.registration.RegistrationUsersImplements;
 import org.krylov.entity.User;
+import org.krylov.readings.AddRecordings;
+import org.krylov.readings.AddRecordingsImplements;
+import org.krylov.registration.GetOrAddUser;
+import org.krylov.registration.GetOrAddUserImplements;
 import java.util.Scanner;
 
 /**
@@ -14,7 +16,8 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         DataBase dataBase = new DataBase();
-        RegistrationUsers users = new RegistrationUsersImplements();
+        GetOrAddUser users = new GetOrAddUserImplements();
+        AddRecordings addRecordings = new AddRecordingsImplements();
         User user = new User();
         Scanner in = new Scanner(System.in);
         RelizEndPoints endPoints = new RelizEndPoints();
@@ -42,19 +45,19 @@ public class App {
                 int endpoint = in.nextInt();
                 switch (endpoint) {
                     case (1):
-                        endPoints.currentIndications(users, user);
+                        endPoints.currentIndications(user);
                         break;
                     case (2):
-                        users.addRecordings(user);
+                        addRecordings.addRecordings(user);
                         break;
                     case (3):
-                        endPoints.specificMonth(users, user);
+                        endPoints.specificMonth(user);
                         break;
                     case (4):
-                        endPoints.allRecordings(users, user);
+                        endPoints.allRecordings(user);
                         break;
                     case (5):
-                        endPoints.allRecordingsForAdmin(users, user);
+                        endPoints.allRecordingsForAdmin(user);
                         break;
                     default:
                         System.out.println("This endpoint is missing");

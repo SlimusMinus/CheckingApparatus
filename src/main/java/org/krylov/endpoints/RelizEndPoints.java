@@ -2,24 +2,23 @@ package org.krylov.endpoints;
 
 import org.krylov.entity.baseReadings.ReadingsAbstract;
 import org.krylov.entity.User;
-import org.krylov.registration.RegistrationUsers;
+import org.krylov.entity.database.DataBase;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
  * class for implementing registered user actions*/
-public class RelizEndPoints {
+public class RelizEndPoints extends DataBase {
     Scanner in = new Scanner(System.in);
 
     /**
      * output of current data to the console
      * @param user - specific user
-     * @param users - database
      */
-    public void currentIndications(RegistrationUsers users, User user ){
-        for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()){
-            for(Map<User, Map<LocalDate, ReadingsAbstract>> items : users.getDataBase()){
+    public void currentIndications(User user ){
+        for(Map<User, Map<LocalDate, ReadingsAbstract>> item : super.getUsers()){
+            for(Map<User, Map<LocalDate, ReadingsAbstract>> items : super.getUsers()){
                 for(Map.Entry<User, Map<LocalDate, ReadingsAbstract>> allUsers : items.entrySet()){
                     if(allUsers.getKey().getLogin().equals(user.getLogin())){
                         final int maplength = allUsers.getValue().size();
@@ -35,13 +34,12 @@ public class RelizEndPoints {
     /**
      * output to the console data for a specific month
      *      @param user - specific user
-     *      @param users - database
      */
-    public void specificMonth(RegistrationUsers users, User user){
+    public void specificMonth(User user){
         System.out.println("Input your month");
         int month = in.nextInt();
 
-        for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {
+        for(Map<User, Map<LocalDate, ReadingsAbstract>> item : super.getUsers()) {
             for (Map.Entry<User, Map<LocalDate, ReadingsAbstract>> allUsers : item.entrySet()) {
                 if (allUsers.getKey().getLogin().equals(user.getLogin())) {
                     Map<LocalDate, ReadingsAbstract> allMonth = allUsers.getValue();
@@ -59,10 +57,9 @@ public class RelizEndPoints {
     /**
      * output to the console all readings of the current user
      *       @param user - specific user
-     *       @param users - database
      */
-    public void allRecordings(RegistrationUsers users, User user){
-        for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {
+    public void allRecordings(User user){
+        for(Map<User, Map<LocalDate, ReadingsAbstract>> item : super.getUsers()) {
             for (Map.Entry<User, Map<LocalDate, ReadingsAbstract>> allUsers : item.entrySet()) {
                 if (allUsers.getKey().getLogin().equals(user.getLogin()))
                     System.out.println(allUsers.getKey().getName() + "\n" + allUsers.getValue());
@@ -72,11 +69,10 @@ public class RelizEndPoints {
     /**
      output to the console of all readings of all users for the administrator
      * @param user - specific user
-     * @param users - database
      */
-    public void allRecordingsForAdmin(RegistrationUsers users, User user){
+    public void allRecordingsForAdmin(User user){
         if(user.getLogin().equals("admin")){
-            for(Map<User, Map<LocalDate, ReadingsAbstract>> item : users.getDataBase()) {
+            for(Map<User, Map<LocalDate, ReadingsAbstract>> item : super.getUsers()) {
                 for (Map.Entry<User, Map<LocalDate, ReadingsAbstract>> allUsers : item.entrySet()) {
                     System.out.println(allUsers.getKey().getName() + "\n" + allUsers.getValue());
                 }

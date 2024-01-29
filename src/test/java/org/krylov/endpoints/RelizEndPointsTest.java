@@ -4,44 +4,41 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.krylov.entity.User;
-import org.krylov.registration.RegistrationUsers;
-import org.krylov.registration.RegistrationUsersImplements;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.verify;
-
-
-public class RelizEndPointsTest {
-   @Mock
-    RelizEndPoints endPoints ;
-    RegistrationUsers users;
-    User user;
+@ExtendWith(MockitoExtension.class)
+class RelizEndPointsTest {
+    private User user;
+    @Mock
+    RelizEndPoints endPoints;
     @BeforeEach
-    void setUp(){
-        users = new RegistrationUsersImplements();
+    void setUser(){
         user = new User("admin", "admin");
-        endPoints = new RelizEndPoints();
-    }
-    @Test
-    void currentIndications(){
-        endPoints.currentIndications(users, user);
-        verify(endPoints, Mockito.times(1)).currentIndications(users, user);
-    }
-    @Test
-    void specificMonth(){
-        endPoints.specificMonth(users, user);
-        verify(endPoints, Mockito.times(1)).specificMonth(users, user);
-    }
-    @Test
-    void allRecordings(){
-        endPoints.allRecordings(users, user);
-        verify(endPoints, Mockito.times(1)).allRecordings(users, user);
-    }
-    @Test
-    void allRecordingsForAdmin(){
-        endPoints.allRecordingsForAdmin(users, user);
-        verify(endPoints, Mockito.times(1)).allRecordingsForAdmin(users, user);
     }
 
+    @Test
+    void currentIndications() {
+        endPoints.currentIndications(user);
+        Mockito.verify(endPoints).currentIndications(user);
+    }
+
+    @Test
+    void specificMonth() {
+        endPoints.specificMonth(user);
+        Mockito.verify(endPoints).specificMonth(user);
+    }
+
+    @Test
+    void allRecordings() {
+        endPoints.allRecordings(user);
+        Mockito.verify(endPoints).allRecordings(user);
+    }
+
+    @Test
+    void allRecordingsForAdmin() {
+        endPoints.allRecordingsForAdmin(user);
+        Mockito.verify(endPoints).allRecordingsForAdmin(user);
+    }
 }
