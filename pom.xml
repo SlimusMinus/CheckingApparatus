@@ -12,13 +12,18 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>4.5</junit.version>
+    <junit-jupiter-api.version>5.10.1</junit-jupiter-api.version>
+    <spring-boot-test.version>3.2.2</spring-boot-test.version>
+    <mockito-core.version>5.10.0</mockito-core.version>
+    <mockito-junit-jupiter.version>5.7.0</mockito-junit-jupiter.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.5</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -26,27 +31,27 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.10.1</version>
+      <version>${junit-jupiter-api.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.10.0</version>
+      <version>${mockito-core.version}</version>
       <scope>test</scope>
     </dependency>
 
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-test</artifactId>
-          <version>3.2.2</version>
+          <version>${spring-boot-test.version}</version>
           <scope>test</scope>
       </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>5.7.0</version>
+      <version>${mockito-junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
 
